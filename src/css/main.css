@@ -1,6 +1,21 @@
 button {
   margin: 8px 0;
-  display: block; }
+  display: block;
+}
 
 .point {
-  margin-right: 8px; }
+  margin-right: 8px;
+}
+/*
+正常動作しなかったのでコメントアウト。
+#requestText {
+  float: right;
+  top: 0;
+  width: 50%;
+}*/
+
+#requestTextArea {
+  min-height: 100px; /* 高さ調整入れてください */
+  resize: vertical;
+  width: 100%;
+}

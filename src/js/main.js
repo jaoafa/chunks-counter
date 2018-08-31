@@ -6,6 +6,7 @@
     addPoint.addEventListener('click', function() {
         let form = document.getElementById('chunksCounter');
         let div = document.createElement('div');
+        div.classList.add('points');
         let xInput = document.createElement('input');
         let zInput = document.createElement('input');
 
@@ -27,6 +28,7 @@
         for ( let i = 0; i < points.length; i++ ) {
             points[i].value = "";
         }
+        document.getElementById('requestTextArea').value = "";
     });
 
     // チャンク数計算
