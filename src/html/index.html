@@ -1,36 +1,48 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="utf-8" />
-    <title>Chunks Counter</title>
-    <link rel="stylesheet" href="../css/main.css" />
-</head>
-<body>
-    <form id="chunksCounter">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Chunks Counter</title>
+        <link rel="stylesheet" href="../css/main.css" />
+    </head>
+
+    <body>
         <h1>Chunk Counter</h1>
-        <div class="points">
-            <input class="point xPoint" type="number" placeholder="x" /><input class="point zPoint" type="number" placeholder="z" />
+        <div id="inputField">
+            <form id="chunksCounter">
+                <div class="points">
+                    <input class="point xPoint" type="number" placeholder="x" /><input class="point zPoint" type="number"
+                        placeholder="z" />
+                </div>
+                <div class="points">
+                    <input class="point xPoint" type="number" placeholder="x" /><input class="point zPoint" type="number"
+                        placeholder="z" />
+                </div>
+                <div class="points">
+                    <input class="point xPoint" type="number" placeholder="x" /><input class="point zPoint" type="number"
+                        placeholder="z" />
+                </div>
+                <div class="points">
+                    <input class="point xPoint" type="number" placeholder="x" /><input class="point zPoint" type="number"
+                        placeholder="z" />
+                </div>
+                <button id="addPoint" type="button">座標欄を追加する</button>
+                <button id="calcChunks" type="button">チャンク数を計算する</button>
+                <button id="reset" type="button">リセット</button>
+
+            </form>
+            <div id="requestText">
+                <h2>申請内容パーサー</h2>
+                <p>申請内容をコピペすると自動的にパースします。(実験的機能)</p>
+                <textarea id="requestTextArea"></textarea>
+                <span id="requestTextAreaMessage">申請内容をそのままコピペしてください。</span>
+            </div>
         </div>
-        <div class="points">
-            <input class="point xPoint" type="number" placeholder="x" /><input class="point zPoint" type="number" placeholder="z" />
-        </div>
-        <div class="points">
-            <input class="point xPoint" type="number" placeholder="x" /><input class="point zPoint" type="number" placeholder="z" />
-        </div>
-        <div class="points">
-            <input class="point xPoint" type="number" placeholder="x" /><input class="point zPoint" type="number" placeholder="z" />
-        </div>
-        <button id="addPoint" type="button">座標欄を追加する</button>
-        <button id="calcChunks" type="button">チャンク数を計算する</button>
-        <button id="reset" type="button">リセット</button>
-        <div id="requestText">
-            <h2>リクエスト内容パーサー</h2>
-            <p>リクエストの内容をコピペすると自動的にパースします。(実験的機能)
-            <textarea id="requestTextArea"></textarea>
-        </div>
-    </form>
-    <div id="chunks"></div>
-    <script src="../js/main.js"></script>
-    <script src="../js/requestParser.js"></script>
-</body>
+        <div id="chunks">0 Chunks (0 Blocks)</div>
+        <div id="chunksMessage">範囲情報を入力してください。</div>
+        <script src="../js/main.js"></script>
+        <script src="../js/requestParser.js"></script>
+    </body>
+
 </html>

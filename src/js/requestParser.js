@@ -9,6 +9,19 @@
     var requestTextArea = document.getElementById('requestTextArea');
     requestTextArea.addEventListener('input', function() {
         var requestText = document.getElementById("requestTextArea");
+        
+        if (requestText.value == "") {
+            // からっぽ
+            requestTextArea.style.borderColor = "gray";
+            document.getElementById("requestTextAreaMessage").innerHTML = "申請内容をそのままコピペしてください。";
+            return;
+        }else if (!requestText.value.match(Reg)) {
+            // マッチしない→パースできない
+            requestTextArea.style.borderColor = "red";
+            document.getElementById("requestTextAreaMessage").innerHTML = "範囲の情報が見つかりません。";
+            return;
+        }
+
         var reqs = requestText.value.split(/\n/);
 
         /* 現存する入力欄をすべて消す。動作はするもののnull導入するだけなので気に入らない */
@@ -17,6 +30,7 @@
             points[i].innerHTML = null;
         }
 
+        var count = 0;
         reqs.forEach( function( value ) {
             var result = Reg.exec(value);
             if(result == null){
@@ -48,10 +62,11 @@
             form.insertBefore(div, addPoint);
 
             console.log("[requestParser] Added #" + keynum + " : " + X + " " + Z + " (" + chunkX + " " + chunkZ + ")");
+            count++;
         });
+        document.getElementById("calcChunks").click();
 
-        
-        
+        requestTextArea.style.borderColor = "green";
+        document.getElementById("requestTextAreaMessage").innerHTML = "成功し、" + count + "個の座標データを入力しました。";
     });
-
 })();
