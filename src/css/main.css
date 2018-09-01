@@ -14,6 +14,37 @@ body {
 }
 
 /* -^------------------^-
+ * Alert
+ * ---------------------- */
+.alert {
+  width: 100%;
+  margin-bottom: 24px;
+  padding: 8px 16px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #fff;
+  border: solid 1px transparent;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.alert-red {
+  background: #d14141;
+  border: solid 1px #bd2d2d;
+}
+
+.alert-green {
+  background: #5eb856;
+  border: solid 1px #4aa442;
+}
+
+.alert-yellow {
+  background: #e2ba37;
+  border: solid 1px #cea623;
+}
+
+/* -^------------------^-
  * Header
  * ---------------------- */
 #header {
