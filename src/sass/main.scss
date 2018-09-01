@@ -9,3 +9,30 @@ button {
 .point {
     margin-right: 8px;
 }
+
+h1 {
+  text-align: center;
+}
+
+#inputField::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+#chunksCounter {
+  float: left;
+}
+
+#requestText {
+  float: right;
+  top: 0;
+  width: 50%;
+}
+
+#requestTextArea {
+  min-height: 200px; /* 高さ調整入れてください */
+  resize: vertical;
+  width: 100%;
+  border: 4px gray ridge;
+}

@@ -1,35 +1,30 @@
+@charset "UTF-8";
 button {
   margin: 8px 0;
-  display: block;
-}
+  display: block; }
 
 .point {
-  margin-right: 8px;
-}
+  margin-right: 8px; }
 
 h1 {
-  text-align: center;
-}
+  text-align: center; }
 
 #inputField::after {
   content: "";
   clear: both;
-  display: block;
-}
+  display: block; }
 
 #chunksCounter {
-  float: left;
-}
+  float: left; }
 
 #requestText {
   float: right;
   top: 0;
-  width: 50%;
-}
+  width: 50%; }
 
 #requestTextArea {
-  min-height: 200px; /* 高さ調整入れてください */
+  min-height: 200px;
+  /* 高さ調整入れてください */
   resize: vertical;
   width: 100%;
-  border: 4px gray ridge;
-}
+  border: 4px gray ridge; }
