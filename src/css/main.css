@@ -1,30 +1,78 @@
 @charset "UTF-8";
+/* (c) 2018 Hiratake */
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+/* -^------------------^-
+ * Header
+ * ---------------------- */
+#header {
+  width: 100%;
+  height: 64px;
+  padding: 0 16px;
+  position: relative;
+}
+
+#header::after {
+  content: "";
+  width: 100%;
+  height: 8px;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: -webkit-linear-gradient(45deg, #c72a48, #dc9100 30%, #ffe650 70%, #e5ff91);
+  background: -o-linear-gradient(45deg, #c72a48, #dc9100 30%, #ffe650 70%, #e5ff91);
+  background: linear-gradient(45deg, #c72a48, #dc9100 30%, #ffe650 70%, #e5ff91);
+}
+
+#header h1 {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#header h1 img {
+  height: 40px;
+}
+
+/* -^------------------^-
+ * Main
+ * ---------------------- */
+main {
+  width: 100%;
+  padding: 32px 16px;
+  background: #f5f5f5;
+}
+
+main #inputField {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 button {
   margin: 8px 0;
-  display: block; }
+  display: block;
+}
 
 .point {
-  margin-right: 8px; }
-
-h1 {
-  text-align: center; }
-
-#inputField::after {
-  content: "";
-  clear: both;
-  display: block; }
-
-#chunksCounter {
-  float: left; }
-
-#requestText {
-  float: right;
-  top: 0;
-  width: 50%; }
+  margin-right: 8px;
+}
 
 #requestTextArea {
   min-height: 200px;
   /* 高さ調整入れてください */
   resize: vertical;
   width: 100%;
-  border: 4px gray ridge; }
+  border: 4px gray ridge;
+}

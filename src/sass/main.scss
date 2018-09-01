@@ -1,6 +1,59 @@
 @charset "utf-8";
 
-// (c) 2018 Hiratake
+/* (c) 2018 Hiratake */
+
+$mainColor: #ffb41e;
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* -^------------------^-
+ * Header
+ * ---------------------- */
+#header {
+    width: 100%;
+    height: 64px;
+    padding: 0 16px;
+    position: relative;
+    &::after {
+        content: "";
+        width: 100%;
+        height: 8px;
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        background: linear-gradient(45deg, #c72a48, ($mainColor - 35) 30%, ($mainColor + 50) 70%, #e5ff91);
+    }
+    h1 {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 8px 0;
+        box-sizing: border-box;
+        img {
+            height: 40px;
+        }
+    }
+}
+
+/* -^------------------^-
+ * Main
+ * ---------------------- */
+main {
+    width: 100%;
+    padding: 32px 16px;
+
+    background: #f5f5f5;
+    #inputField {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
 
 button {
     margin: 8px 0;
@@ -8,26 +61,6 @@ button {
 }
 .point {
     margin-right: 8px;
-}
-
-h1 {
-  text-align: center;
-}
-
-#inputField::after {
-  content: "";
-  clear: both;
-  display: block;
-}
-
-#chunksCounter {
-  float: left;
-}
-
-#requestText {
-  float: right;
-  top: 0;
-  width: 50%;
 }
 
 #requestTextArea {
