@@ -35,16 +35,11 @@
     // チャンク数計算
     var calcChunks = document.getElementById('calcChunks');
     calcChunks.addEventListener('click', function () {
-        var points = document.getElementsByClassName('point');
         let result = document.getElementById('chunks');
         let XpointsValue = [];
         let ZpointsValue = [];
 
-        // 座標データ取得
-        for (let i = 0; i < points.length; i = i + 2) {
-            XpointsValue.push(Number(points[i].value));
-            ZpointsValue.push(Number(points[i + 1].value));
-        }
+        var points = getPoints();
 
         // 面積計算
         let size = 0.0;
@@ -52,17 +47,17 @@
         let x2 = 0;
         let z1 = 0;
         let z2 = 0;
-        for (let i = 0; i < XpointsValue.length; i++) {
-            if ((i + 1) >= XpointsValue.length) {
-                x1 = XpointsValue[i];
-                x2 = XpointsValue[0];
-                z1 = ZpointsValue[i];
-                z2 = ZpointsValue[0];
+        for (let i = 0; i < points.x.length; i++) {
+            if ((i + 1) >= points.x.length) {
+                x1 = points.x[i];
+                x2 = points.x[0];
+                z1 = points.z[i];
+                z2 = points.z[0];
             } else {
-                x1 = XpointsValue[i];
-                x2 = XpointsValue[i + 1];
-                z1 = ZpointsValue[i];
-                z2 = ZpointsValue[i + 1];
+                x1 = points.x[i];
+                x2 = points.x[i + 1];
+                z1 = points.z[i];
+                z2 = points.z[i + 1];
             }
             size += (x1 * z2) - (x2 * z1);
         }
@@ -74,11 +69,11 @@
 
         // 辺の長さ計算
         let side = 0.0;
-        for (let i = 0; i < XpointsValue.length; i++) {
-            if ((i + 1) >= XpointsValue.length) {
-                side = side + Math.abs(XpointsValue[i] - XpointsValue[0]) + Math.abs(ZpointsValue[i] - ZpointsValue[0]);
+        for (let i = 0; i < points.x.length; i++) {
+            if ((i + 1) >= points.x.length) {
+                side = side + Math.abs(points.x[i] - points.x[0]) + Math.abs(points.z[i] - points.z[0]);
             } else {
-                side = side + Math.abs(XpointsValue[i] - XpointsValue[i + 1]) + Math.abs(ZpointsValue[i] - ZpointsValue[i + 1]);
+                side = side + Math.abs(points.x[i] - points.x[i + 1]) + Math.abs(points.z[i] - points.z[i + 1]);
             }
         }
         console.log(side);
@@ -107,4 +102,21 @@
             chunksmsg.innerHTML = "特に問題はありません。";
         }
     });
+
+    /**
+     * 入力された座標情報を取得
+     * @return  {Object}  座標情報
+     */
+    function getPoints() {
+        let data = document.getElementsByClassName('point');
+        let points = {
+            x: [],
+            z: [],
+        }
+        for (let i = 0; i < data.length; i = i + 2) {
+            points.x.push(Number(data[i].value));
+            points.z.push(Number(data[i + 1].value));
+        }
+        return points;
+    }
 })();
