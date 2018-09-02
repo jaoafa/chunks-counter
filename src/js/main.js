@@ -38,8 +38,9 @@
         let result = document.getElementById('chunks');
         let XpointsValue = [];
         let ZpointsValue = [];
-
-        var points = getPoints();
+    
+        // 座標情報取得
+        var points = getPoints('point');
 
         // 面積計算
         let size = 0.0;
@@ -105,10 +106,11 @@
 
     /**
      * 入力された座標情報を取得
+     * @param   {string}  クラス名
      * @return  {Object}  座標情報
      */
-    function getPoints() {
-        let data = document.getElementsByClassName('point');
+    function getPoints(className) {
+        let data = document.getElementsByClassName(className);
         let points = {
             x: [],
             z: [],
