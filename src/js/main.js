@@ -36,7 +36,7 @@
     var calcChunks = document.getElementById('calcChunks');
     calcChunks.addEventListener('click', function () {
         let result = document.getElementById('chunks');
-    
+
         // 座標情報取得
         const points = getPoints('point');
         // ブロック数計算
@@ -45,7 +45,7 @@
         // チャンク数計算
         let chunks = blocks / (16 * 16);
         result.innerText = chunks + " Chunks (" + blocks + " Blocks)";
-        
+
         var chunksmsg = document.getElementById('chunksMessage');
         if (chunks >= 1024) {
             result.style.color = "red";
@@ -53,10 +53,10 @@
         } else if (Math.round(chunks) !== chunks) {
             result.style.color = "orange";
             chunksmsg.innerHTML = "チャンク数が不適切(整数でない)です。範囲が正確に指定されていない可能性があります。";
-        } else if (chunk == 0) {
+        } else if (Math.round(chunks) == 0) {
             result.style.color = "none";
             chunksmsg.innerHTML = "範囲情報を入力してください。";
-        }else{
+        } else {
             result.style.color = "none";
             chunksmsg.innerHTML = "特に問題はありません。";
         }
@@ -118,12 +118,12 @@
         for (let i = 0; i < points.x.length; i++) {
             if ((i + 1) >= points.x.length) {
                 side = side
-                     + Math.abs(points.x[i] - points.x[0])
-                     + Math.abs(points.z[i] - points.z[0]);
+                    + Math.abs(points.x[i] - points.x[0])
+                    + Math.abs(points.z[i] - points.z[0]);
             } else {
                 side = side
-                     + Math.abs(points.x[i] - points.x[i + 1])
-                     + Math.abs(points.z[i] - points.z[i + 1]);
+                    + Math.abs(points.x[i] - points.x[i + 1])
+                    + Math.abs(points.z[i] - points.z[i + 1]);
             }
         }
 
